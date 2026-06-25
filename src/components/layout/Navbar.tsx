@@ -92,20 +92,20 @@ export default function Navbar() {
             transition={{ duration: 0.22, ease: 'easeInOut' }}
             className="absolute top-full left-0 right-0 md:hidden border-t border-melt-border/60 bg-white overflow-hidden z-50"
           >
-            <div className="px-6 py-5 flex flex-col">
+            <div className="flex flex-col pb-4">
               {NAV_LINKS.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-melt-dark text-sm font-medium py-3.5 border-b border-melt-border/50 last:border-0 hover:text-melt-pink transition-colors duration-200 cursor-pointer"
+                  className="block w-full py-5 px-6 text-lg font-medium border-b border-melt-border text-melt-dark hover:text-melt-pink transition-colors duration-200 cursor-pointer"
                 >
                   {label}
                 </Link>
               ))}
               <a
                 href="tel:+918691990290"
-                className="mt-5 bg-melt-pink text-white text-xs font-semibold px-5 py-3 rounded-full text-center hover:opacity-90 transition-opacity duration-200 cursor-pointer"
+                className="w-full text-center py-4 px-6 mt-4 mx-6 text-base bg-melt-pink text-white font-semibold rounded-full hover:opacity-90 transition-opacity duration-200 cursor-pointer"
               >
                 Reserve a Table
               </a>
