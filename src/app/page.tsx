@@ -66,7 +66,7 @@ export default function Home() {
           </h2>
           <p className="text-white/45 text-sm md:text-base leading-[1.9] max-w-xl mx-auto mb-5">
             Melt House was born from a simple belief — that great food and exceptional coffee should
-            feel effortless. Tucked inside IFC Mall, we&apos;ve built a space where mornings feel slower,
+            feel effortless. Tucked inside M3M IFC, Gurugram, we&apos;ve built a space where mornings feel slower,
             brunches last longer, and every evening turns into a story worth telling.
           </p>
           <p className="text-white/45 text-sm md:text-base leading-[1.9] max-w-xl mx-auto mb-10">
