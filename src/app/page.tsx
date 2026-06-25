@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { menuData } from '@/data/menu';
 import MenuItemCard from '@/components/menu/MenuItemCard';
-import HeroContent from '@/components/home/HeroContent';
 import FadeIn from '@/components/ui/FadeIn';
 import { StaggerGrid, StaggerItem } from '@/components/ui/StaggerChildren';
 
@@ -29,9 +28,82 @@ export default function Home() {
   return (
     <>
       {/* SECTION 1 — Hero */}
-      <div className="min-h-svh bg-melt-dark flex flex-col items-center justify-center relative">
-        <HeroContent />
-      </div>
+      <section className="relative w-full min-h-screen overflow-hidden bg-[#1A1A1A]">
+
+        {/* Background photo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/825a8e12100c50b2f8d2e35a3e9c12c7.jpg')" }}
+        />
+
+        {/* Dark gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(180deg, rgba(20,20,20,.55) 0%, rgba(20,20,20,.35) 38%, rgba(18,18,18,.82) 78%, rgba(15,15,15,.95) 100%)' }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col min-h-screen px-6 py-6 box-border">
+
+          {/* Headline block — lower third */}
+          <div className="mt-auto pb-10">
+
+            {/* Yellow label */}
+            <p
+              style={{ fontFamily: 'Inter', fontSize: '10px', letterSpacing: '.26em' }}
+              className="uppercase text-[#FFE600] mb-5 font-medium"
+            >
+              Gurugram&apos;s most loved café
+            </p>
+
+            {/* Main headline */}
+            <h1
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: '46px', lineHeight: '1.02', letterSpacing: '-.015em' }}
+              className="text-[#FAF8F5] font-medium m-0"
+            >
+              Where Every <em>Sip</em> Tells a Story.
+            </h1>
+
+            {/* Subtitle */}
+            <p
+              style={{ fontFamily: 'Inter', fontSize: '14.5px', lineHeight: '1.6' }}
+              className="text-[#cfc7bc] mt-4 max-w-[300px]"
+            >
+              Specialty coffee, European brunch &amp; wine-forward evenings at M3M IFC.
+            </p>
+
+            {/* CTA buttons */}
+            <div className="flex gap-3 mt-7">
+              <Link
+                href="/menu"
+                className="flex-1 text-center bg-[#E8186D] text-white py-4 rounded-full font-semibold text-sm"
+                style={{ boxShadow: '0 8px 24px rgba(232,24,109,.34)' }}
+              >
+                See Our Menu
+              </Link>
+              <Link
+                href="/visit"
+                className="flex-1 text-center text-[#FAF8F5] py-4 rounded-full font-semibold text-sm"
+                style={{ background: 'rgba(255,255,255,.06)', border: '1.5px solid rgba(250,248,245,.35)', backdropFilter: 'blur(4px)' }}
+              >
+                Find Us
+              </Link>
+            </div>
+
+            {/* Location pill */}
+            <div className="flex items-center gap-2 mt-6">
+              <span className="w-[5px] h-[5px] rounded-full bg-[#E8186D] shrink-0" />
+              <span
+                style={{ fontFamily: 'Inter', fontSize: '11.5px', letterSpacing: '.08em' }}
+                className="uppercase text-[#9a9286] font-medium"
+              >
+                M3M IFC · Sector 66 · Gurugram
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 2 — Image Marquee */}
       <section className="bg-melt-dark py-14 overflow-hidden">
