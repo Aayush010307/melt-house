@@ -1,65 +1,126 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { MapPin, Clock, Phone } from 'lucide-react';
+import { menuData } from '@/data/menu';
+import MenuItemCard from '@/components/menu/MenuItemCard';
+import HeroContent from '@/components/home/HeroContent';
+import ImageMarquee from '@/components/home/ImageMarquee';
+import FadeIn from '@/components/ui/FadeIn';
+import { StaggerGrid, StaggerItem } from '@/components/ui/StaggerChildren';
+
+const signatures = menuData
+  .flatMap((category) => category.items)
+  .filter((item) => item.isSignature)
+  .slice(0, 6);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* SECTION 1 — Hero */}
+      <div className="min-h-svh bg-melt-dark flex flex-col items-center justify-center relative">
+        <HeroContent />
+      </div>
+
+      {/* SECTION 2 — Image Marquee */}
+      <ImageMarquee />
+
+      {/* SECTION 3 — Signature Picks */}
+      <div className="bg-melt-cream py-28 md:py-36 px-6 md:px-10">
+        <FadeIn className="text-center mb-16 md:mb-20">
+          <p className="text-melt-pink text-[11px] font-semibold tracking-[0.22em] uppercase mb-5">
+            The Menu
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h2 className="font-display text-5xl md:text-6xl font-bold text-melt-dark leading-[1.05] tracking-tight">
+            Our Signatures
+          </h2>
+          <p className="text-melt-mid/70 text-sm mt-4 max-w-xs mx-auto leading-relaxed">
+            The dishes and drinks that made us famous.
+          </p>
+        </FadeIn>
+
+        <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-6xl mx-auto">
+          {signatures.map((item) => (
+            <StaggerItem key={item.id}>
+              <MenuItemCard item={item} />
+            </StaggerItem>
+          ))}
+        </StaggerGrid>
+
+        <FadeIn delay={0.2} className="text-center mt-12">
+          <Link
+            href="/menu"
+            className="text-melt-pink text-sm font-semibold hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            View Full Menu →
+          </Link>
+        </FadeIn>
+      </div>
+
+      {/* SECTION 4 — The Vibe */}
+      <div className="bg-melt-dark py-28 md:py-36 px-6 md:px-10 text-center">
+        <FadeIn>
+          <p className="text-melt-yellow/70 text-[11px] font-semibold tracking-[0.22em] uppercase mb-6">
+            Our Story
+          </p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-10">
+            More than a Café
+          </h2>
+          <p className="text-white/45 text-sm md:text-base leading-[1.9] max-w-xl mx-auto mb-5">
+            Melt House was born from a simple belief — that great food and exceptional coffee should
+            feel effortless. Tucked inside IFC Mall, we&apos;ve built a space where mornings feel slower,
+            brunches last longer, and every evening turns into a story worth telling.
+          </p>
+          <p className="text-white/45 text-sm md:text-base leading-[1.9] max-w-xl mx-auto mb-10">
+            From our legendary Tiramisu Latte to our wood-fired Pepperoni Hot Honey pizza, everything
+            on our menu is made with obsessive attention to detail — and a lot of love.
+          </p>
+          <Link
+            href="/about"
+            className="text-melt-pink text-sm font-semibold inline-block hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Read Our Story →
+          </Link>
+        </FadeIn>
+      </div>
+
+      {/* SECTION 5 — Quick Visit Info */}
+      <div className="bg-melt-cream py-24 md:py-28 px-6 md:px-10">
+        <StaggerGrid className="flex flex-col md:flex-row gap-12 md:gap-16 justify-center max-w-3xl mx-auto text-center">
+          <StaggerItem className="flex-1">
+            <MapPin className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
+            <p className="font-semibold text-melt-dark text-sm mb-2">Location</p>
+            <p className="text-melt-mid text-sm leading-[1.75]">
+              M3M IFC, Sector 66, Gurugram<br />Gurugram, Haryana
+            </p>
+          </StaggerItem>
+          <StaggerItem className="flex-1">
+            <Clock className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
+            <p className="font-semibold text-melt-dark text-sm mb-2">Hours</p>
+            <p className="text-melt-mid text-sm leading-[1.75]">
+              Mon–Thu 8am–11pm<br />Fri–Sun 8am–12am
+            </p>
+          </StaggerItem>
+          <StaggerItem className="flex-1">
+            <Phone className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
+            <p className="font-semibold text-melt-dark text-sm mb-2">Reserve</p>
+            <a
+              href="tel:+918691990290"
+              aria-label="Call us at +91 86919 90290"
+              className="text-melt-pink text-sm leading-[1.75] hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
+            >
+              +91 86919 90290
+            </a>
+          </StaggerItem>
+        </StaggerGrid>
+
+        <FadeIn delay={0.2} className="text-center mt-12">
+          <Link
+            href="/visit"
+            className="text-melt-pink font-semibold text-sm hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
+          >
+            Get Directions →
+          </Link>
+        </FadeIn>
+      </div>
+    </>
   );
 }

@@ -1,26 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Melt House Colours */
+  --color-melt-pink:   #E8186D;
+  --color-melt-yellow: #FFE600;
+  --color-melt-dark:   #1A1A1A;
+  --color-melt-cream:  #FAF8F5;
+  --color-melt-border: #E8E0D8;
+  --color-melt-mid:    #555555;
+  --color-melt-light:  #999999;
+
+  /* Fonts */
+  --font-display: "Playfair Display", serif;
+  --font-body:    "Inter", sans-serif;
+
+  /* Border Radius */
+  --radius-card: 12px;
+  --radius-pill: 24px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF8F5;
+  color: #1A1A1A;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
