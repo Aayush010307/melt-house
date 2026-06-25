@@ -1,9 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import { MapPin, Clock, Phone } from 'lucide-react';
 import { menuData } from '@/data/menu';
 import MenuItemCard from '@/components/menu/MenuItemCard';
 import HeroContent from '@/components/home/HeroContent';
-import ImageMarquee from '@/components/home/ImageMarquee';
 import FadeIn from '@/components/ui/FadeIn';
 import { StaggerGrid, StaggerItem } from '@/components/ui/StaggerChildren';
 
@@ -11,6 +12,19 @@ const signatures = menuData
   .flatMap((category) => category.items)
   .filter((item) => item.isSignature)
   .slice(0, 6);
+
+const images = [
+  { src: '/images/15dce645ddb23ae4c4c2de8ce6da3b19.jpg', alt: 'Melt House interior' },
+  { src: '/images/25fd868da84882de788522ae66d265f0.jpg', alt: 'Melt House coffee' },
+  { src: '/images/37d4cd205a8181041a68032da3861ca9 (1).jpg', alt: 'Melt House food' },
+  { src: '/images/37d4cd205a8181041a68032da3861ca9.jpg', alt: 'Melt House ambience' },
+  { src: '/images/398db6ff43c86951625e71d5ee816eb6.jpg', alt: 'Melt House drinks' },
+  { src: '/images/75f09bd29384d7f43623ed7bf7fa949b.jpg', alt: 'Melt House brunch' },
+  { src: '/images/825a8e12100c50b2f8d2e35a3e9c12c7.jpg', alt: 'Melt House dessert' },
+  { src: '/images/ad5b3a54fd9881dd390f1c13408c6442.jpg', alt: 'Melt House space' },
+  { src: '/images/d053771da0fcb8d8fb266c1df016cce0.jpg', alt: 'Melt House bar' },
+  { src: '/images/e459fe6a050601efc3c76a784019172c.jpg', alt: 'Melt House table' },
+];
 
 export default function Home() {
   return (
@@ -21,7 +35,34 @@ export default function Home() {
       </div>
 
       {/* SECTION 2 — Image Marquee */}
-      <ImageMarquee />
+      <section className="bg-melt-dark py-14 overflow-hidden">
+        <p className="text-center text-melt-pink text-xs font-semibold tracking-widest uppercase mb-8">
+          The Space
+        </p>
+        <div className="relative w-full overflow-hidden">
+          <div
+            className="flex gap-4"
+            style={{
+              width: 'max-content',
+              animation: 'marquee 35s linear infinite',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
+            onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = 'running')}
+            onTouchStart={(e) => (e.currentTarget.style.animationPlayState = 'paused')}
+            onTouchEnd={(e) => (e.currentTarget.style.animationPlayState = 'running')}
+          >
+            {[...images, ...images].map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                className="h-64 md:h-80 rounded-2xl object-cover shrink-0 shadow-lg"
+                style={{ width: '240px' }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 3 — Signature Picks */}
       <div className="bg-melt-dark py-28 md:py-36 px-6 md:px-10">
