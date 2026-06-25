@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { MapPin, Clock, Phone } from 'lucide-react';
 import { menuData } from '@/data/menu';
 import MenuItemCard from '@/components/menu/MenuItemCard';
 import HeroContent from '@/components/home/HeroContent';
@@ -124,44 +123,67 @@ export default function Home() {
       </div>
 
       {/* SECTION 5 — Quick Visit Info */}
-      <div className="bg-melt-cream py-24 md:py-28 px-6 md:px-10">
-        <StaggerGrid className="flex flex-col md:flex-row gap-12 md:gap-16 justify-center max-w-3xl mx-auto text-center">
-          <StaggerItem className="flex-1">
-            <MapPin className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
-            <p className="font-semibold text-melt-dark text-sm mb-2">Location</p>
-            <p className="text-melt-mid text-sm leading-[1.75]">
-              M3M IFC, Sector 66, Gurugram<br />Gurugram, Haryana
+      <section className="bg-melt-cream py-16 px-6">
+        <h2 className="font-display text-3xl font-bold text-melt-dark text-center mb-10">Find Us</h2>
+
+        <div className="max-w-sm mx-auto space-y-6">
+
+          {/* Location */}
+          <div className="bg-white rounded-2xl p-6 border border-melt-border">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-melt-pink text-lg">📍</span>
+              <span className="font-semibold text-melt-dark text-sm">Location</span>
+            </div>
+            <p className="text-melt-mid text-sm leading-relaxed">
+              M3M IFC, Sector 66<br />Gurugram, Haryana — 122101
             </p>
-          </StaggerItem>
-          <StaggerItem className="flex-1">
-            <Clock className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
-            <p className="font-semibold text-melt-dark text-sm mb-2">Hours</p>
-            <p className="text-melt-mid text-sm leading-[1.75]">
-              Mon–Thu 8am–11pm<br />Fri–Sun 8am–12am
+            <a
+              href="https://maps.google.com/?q=M3M+International+Financial+Centre+Sector+66+Gurugram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-melt-pink text-xs font-semibold mt-3 inline-block"
+            >
+              Open in Maps →
+            </a>
+          </div>
+
+          {/* Hours */}
+          <div className="bg-white rounded-2xl p-6 border border-melt-border">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-melt-pink text-lg">🕐</span>
+              <span className="font-semibold text-melt-dark text-sm">Hours</span>
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-melt-dark">Mon – Thu</span>
+                <span className="text-melt-mid">8am – 11pm</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-melt-dark">Fri – Sun</span>
+                <span className="text-melt-mid">8am – 12am</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Reserve */}
+          <div className="bg-melt-pink rounded-2xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-white text-lg">📞</span>
+              <span className="font-semibold text-white text-sm">Reserve a Table</span>
+            </div>
+            <p className="text-white/70 text-xs mb-4">
+              Walk-ins welcome · Groups of 6+ call ahead
             </p>
-          </StaggerItem>
-          <StaggerItem className="flex-1">
-            <Phone className="mx-auto mb-4 text-melt-pink" size={20} aria-hidden="true" />
-            <p className="font-semibold text-melt-dark text-sm mb-2">Reserve</p>
             <a
               href="tel:+918691990290"
-              aria-label="Call us at +91 86919 90290"
-              className="text-melt-pink text-sm leading-[1.75] hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
+              className="block w-full bg-white text-melt-pink font-bold text-center py-3 rounded-xl text-sm"
             >
               +91 86919 90290
             </a>
-          </StaggerItem>
-        </StaggerGrid>
+          </div>
 
-        <FadeIn delay={0.2} className="text-center mt-12">
-          <Link
-            href="/visit"
-            className="text-melt-pink font-semibold text-sm hover:opacity-70 transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink rounded-sm"
-          >
-            Get Directions →
-          </Link>
-        </FadeIn>
-      </div>
+        </div>
+      </section>
     </>
   );
 }
