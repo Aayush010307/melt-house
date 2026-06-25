@@ -22,13 +22,13 @@ export default function MenuTabView() {
     <>
       {/* Tab bar */}
       <div className="sticky top-[60px] z-40 bg-melt-dark border-b border-white/10 px-4">
-        <div className="flex max-w-xs mx-auto">
+        <div className="flex max-w-xs mx-auto min-h-[52px]">
           {TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               aria-pressed={activeTab === tab.id}
-              className={`relative flex-1 py-3 text-sm font-semibold text-center cursor-pointer transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink focus-visible:ring-inset ${
+              className={`relative flex-1 py-4 text-base font-semibold text-center cursor-pointer transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-melt-pink focus-visible:ring-inset ${
                 activeTab === tab.id
                   ? 'text-melt-pink'
                   : 'text-white/40 hover:text-white/70'
@@ -38,7 +38,7 @@ export default function MenuTabView() {
               {activeTab === tab.id && (
                 <motion.span
                   layoutId="tab-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-melt-pink"
+                  className="absolute bottom-0 left-0 right-0 h-[3px] bg-melt-pink"
                   transition={{ duration: reduced ? 0 : 0.2, ease: 'easeInOut' }}
                 />
               )}

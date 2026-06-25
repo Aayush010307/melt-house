@@ -24,15 +24,15 @@ export default function Home() {
       <ImageMarquee />
 
       {/* SECTION 3 — Signature Picks */}
-      <div className="bg-melt-cream py-28 md:py-36 px-6 md:px-10">
+      <div className="bg-melt-dark py-28 md:py-36 px-6 md:px-10">
         <FadeIn className="text-center mb-16 md:mb-20">
           <p className="text-melt-pink text-[11px] font-semibold tracking-[0.22em] uppercase mb-5">
             The Menu
           </p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-melt-dark leading-[1.05] tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.05] tracking-tight">
             Our Signatures
           </h2>
-          <p className="text-melt-mid/70 text-sm mt-4 max-w-xs mx-auto leading-relaxed">
+          <p className="text-white/50 text-sm mt-4 max-w-xs mx-auto leading-relaxed">
             The dishes and drinks that made us famous.
           </p>
         </FadeIn>
