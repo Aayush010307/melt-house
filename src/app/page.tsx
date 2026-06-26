@@ -39,14 +39,14 @@ export default function Home() {
         {/* Dark gradient overlay */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.12) 0%, rgba(10,10,10,0.20) 25%, rgba(10,10,10,0.60) 60%, rgba(8,8,8,0.93) 85%, rgba(5,5,5,0.97) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(15,15,15,.82) 0%, rgba(15,15,15,.55) 26%, rgba(15,15,15,.50) 50%, rgba(14,14,14,.80) 74%, rgba(12,12,12,.97) 100%)' }}
         />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col min-h-screen px-6 py-6 box-border">
 
           {/* Headline block — lower third */}
-          <div className="mt-auto pb-10">
+          <div className="mt-auto pb-10" style={{ textShadow: '0 1px 18px rgba(0,0,0,0.55)' }}>
 
             {/* Yellow label */}
             <p
