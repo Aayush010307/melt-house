@@ -23,32 +23,33 @@ export default function MenuItemCard({ item }: { item: MenuItem }) {
 
   return (
     <div
-      className={`group relative py-5 border-b border-white/10${item.isSignature ? ' pl-4' : ''}`}
-      style={item.isSignature ? { borderLeft: '2px solid #E8186D' } : undefined}
+      style={{
+        borderTop: '1px solid rgba(255,255,255,.08)',
+        borderLeft: item.isSignature ? '2px solid #E8186D' : '2px solid transparent',
+        background: item.isSignature ? 'rgba(232,24,109,.05)' : 'transparent',
+        padding: '18px 0 18px 16px',
+      }}
     >
-      {/* Name + price */}
-      <div className="flex items-baseline justify-between gap-4">
-        <p className="text-white font-semibold text-base leading-snug">
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '14px' }}>
+        <p style={{ fontFamily: 'Inter', fontWeight: 600, fontSize: '16.5px', lineHeight: '1.25', color: '#FAF8F5', margin: 0 }}>
           {item.name}
           {item.isSignature && (
-            <span className="text-melt-yellow text-xs ml-1.5">★</span>
+            <span style={{ color: '#FFE600', marginLeft: '7px', fontSize: '13px' }}>★</span>
           )}
         </p>
-        <p className="text-melt-pink font-bold text-lg whitespace-nowrap ml-6 shrink-0">
+        <p style={{ fontFamily: 'Inter', fontWeight: 700, fontSize: '15px', lineHeight: 1, color: '#E8186D', whiteSpace: 'nowrap', margin: 0 }}>
           ₹{item.price}
         </p>
       </div>
 
-      {/* Description */}
       {item.description && (
-        <p className="text-white/50 text-xs leading-relaxed mt-1.5 max-w-2xl">
+        <p style={{ fontFamily: 'Inter', fontWeight: 400, fontSize: '12.5px', lineHeight: '1.55', color: '#8f877c', marginTop: '7px', maxWidth: '290px', marginBottom: 0 }}>
           {item.description}
         </p>
       )}
 
-      {/* Dietary flags */}
       {item.dietary.length > 0 && (
-        <p className="text-white/30 text-[10px] tracking-wide uppercase mt-2">
+        <p style={{ fontSize: '10px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,.25)', marginTop: '8px', marginBottom: 0 }}>
           {dietaryLine}
         </p>
       )}
