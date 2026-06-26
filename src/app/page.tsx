@@ -33,13 +33,13 @@ export default function Home() {
         {/* Background photo */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/825a8e12100c50b2f8d2e35a3e9c12c7.jpg')" }}
+          style={{ backgroundImage: "url('/images/storefront.jpg')" }}
         />
 
         {/* Dark gradient overlay */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(20,20,20,.55) 0%, rgba(20,20,20,.35) 38%, rgba(18,18,18,.82) 78%, rgba(15,15,15,.95) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.12) 0%, rgba(10,10,10,0.20) 25%, rgba(10,10,10,0.60) 60%, rgba(8,8,8,0.93) 85%, rgba(5,5,5,0.97) 100%)' }}
         />
 
         {/* Content */}
@@ -72,23 +72,51 @@ export default function Home() {
               Specialty coffee, European brunch &amp; wine-forward evenings at M3M IFC.
             </p>
 
-            {/* CTA buttons */}
-            <div className="flex gap-3 mt-7">
-              <Link
-                href="/menu"
-                className="flex-1 text-center bg-[#E8186D] text-white py-4 rounded-full font-semibold text-sm"
-                style={{ boxShadow: '0 8px 24px rgba(232,24,109,.34)' }}
-              >
-                See Our Menu
-              </Link>
-              <Link
-                href="/visit"
-                className="flex-1 text-center text-[#FAF8F5] py-4 rounded-full font-semibold text-sm"
-                style={{ background: 'rgba(255,255,255,.06)', border: '1.5px solid rgba(250,248,245,.35)', backdropFilter: 'blur(4px)' }}
-              >
-                Find Us
-              </Link>
-            </div>
+            {/* Primary CTA — editorial underline style */}
+            <Link
+              href="/menu"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px',
+                marginTop: '30px',
+                textDecoration: 'none',
+              }}
+            >
+              <span style={{
+                font: '600 18px/1 Inter, sans-serif',
+                color: '#FAF8F5',
+                borderBottom: '2px solid #E8186D',
+                paddingBottom: '6px',
+              }}>See Our Menu</span>
+              <span style={{
+                flex: 1,
+                height: '1px',
+                background: 'linear-gradient(90deg, #E8186D, rgba(232,24,109,0))',
+              }} />
+              <span style={{
+                color: '#E8186D',
+                fontSize: '18px',
+                animation: 'mhArrow 1.4s ease-in-out infinite',
+                display: 'inline-block',
+              }}>→</span>
+            </Link>
+
+            {/* Secondary CTA — small text */}
+            <Link
+              href="/visit"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                marginTop: '20px',
+                textDecoration: 'none',
+                font: '500 13.5px Inter, sans-serif',
+                color: '#9a9286',
+              }}
+            >
+              Find Us <span style={{ color: '#FFE600' }}>↗</span>
+            </Link>
 
             {/* Location pill */}
             <div className="flex items-center gap-2 mt-6">
